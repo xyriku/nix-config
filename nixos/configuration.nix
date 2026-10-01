@@ -87,7 +87,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."xyrik" = {
     isNormalUser = true;
-    description = "xyrik-nixos";
+    description = "xyrik";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
