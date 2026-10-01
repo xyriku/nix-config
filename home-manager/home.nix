@@ -38,18 +38,24 @@
 
   # TODO: Set your username
   home = {
-    username = "xyriknixos";
-    homeDirectory = "/home/xyriknixos";
+    username = "xyrik";
+    homeDirectory = "/home/xyrik";
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  programs.neovim.enable = true;
+  home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+  # Shell aliases
+  programs.bash.enable = true;
+  programs.bash.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
+   home-manager-rebuild = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
+  };
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
