@@ -44,18 +44,87 @@
 
   # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
-  home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+home.packages = with pkgs; [
+
+# some terminal stuff
+neofetch
+yazi
+btop
+
+# archives
+zip
+xz
+unzip
+p7zip
+
+# utils
+ripgrep
+jq
+yq-go
+eza
+fzf
+
+# misc
+file
+which
+tree
+gnused
+gnutar
+gawk
+ztsd
+gnupg
+
+
+# nix related
+# provdes command 'nom', works like nix but with more log output
+nix-output-monitor
+
+# productivity
+glow # markdown previwer in terminal
+hugo # static site generator
+
+btop
+iotop
+iftop
+
+# system call montioring
+strace
+ltrace
+lsof
+
+# system tools
+sysstat
+lm_sensors
+ethtool
+pciutils
+usbutils
+
+# games
+steam
+moonlight-qt
+
+
+];
+
+  programs.git = {
+    enable = true;
+    userName = "xyrik";
+    userEmail = "xyrik@fubuk.ing"
+  };
+
   # Shell aliases
   programs.bash.enable = true;
   programs.bash.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
-   home-manager-rebuild = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
+    apply-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
   };
+
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "26.05";
 }

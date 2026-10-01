@@ -13,7 +13,7 @@
 #       ./environment.nix
 
     ];
-  
+
   # Enable Flakes and accompanying CLI tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -111,7 +111,8 @@
     discord-ptb
     pear-desktop
     steam
-    home-manager 
+    home-manager
+    easyeffects
 
 ];
 
