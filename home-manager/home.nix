@@ -46,7 +46,6 @@
     homeDirectory = "/home/xyrik";
   };
 
-  programs.zsh.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
