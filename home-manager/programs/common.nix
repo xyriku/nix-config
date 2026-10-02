@@ -5,7 +5,7 @@
     aha
     archon-lite
     audacity
-    bottles
+   (bottles.override { removeWarningPopup = true; })
     cifs-utils
     cliphist
     dmenu

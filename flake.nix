@@ -21,10 +21,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # noctalia
-   # noctalia = {
-   #   url = "github:noctalia-dev/noctalia";
-   #   inputs.nixpkgs.follows = "nixpkgs";
-   # };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -51,7 +51,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            #home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.xyrik = import ./home-manager/home.nix;
             }
         ];

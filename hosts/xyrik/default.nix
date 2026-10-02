@@ -76,6 +76,7 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
@@ -111,6 +112,8 @@
     jack.enable = true;
   };
 
+ security.polkit.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -143,6 +146,8 @@
     home-manager
     easyeffects
 ];
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
