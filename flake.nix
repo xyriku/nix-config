@@ -1,12 +1,16 @@
 {
   description = "Your new nix config";
 
-#  nixConfig = {
-#    extra-substituters = [
-#      "https://nix-community.cachix.org"
-#    ];
-#  extra-trusted-public-keys = []
-#  }
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://noctalia.cachix.org"
+    ];
+  extra-trusted-public-keys = [
+    "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -14,6 +18,12 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # noctalia
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -39,7 +49,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-           # home-manager.extraSpecialArgs = inputs // specialArgs;
+            #home-manager.extraSpecialArgs = inputs // specialArgs;
             home-manager.users.xyrik = import ./home-manager/home.nix;
             }
         ];

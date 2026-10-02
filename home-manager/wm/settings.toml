@@ -1,0 +1,420 @@
+config_version = 14
+
+[bar.default]
+background_opacity = 0.0
+capsule = true
+capsule_padding = 8.0
+capsule_radius = 8
+capsule_thickness = 0.72999998740851879
+center = [ "clock", "cat", "input_volume" ]
+concave_edge_corners = false
+end = [
+    "widget_2",
+    "bar",
+    "tray",
+    "notifications",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "session",
+    "bar_2"
+]
+icon_color = "primary"
+margin_ends = 0
+radius = 0
+scale = 1.2000000104308128
+start = [ "launcher", "wallpaper", "workspaces", "active_window", "bar_3", "widget", "media" ]
+thickness = 38
+widget_spacing = 8
+
+    [bar.default.dead_zone.actions]
+    scroll_down = "volume-down"
+    scroll_up = "volume-up"
+
+[calendar]
+enabled = true
+
+    [calendar.account.subscription]
+    color = "#FFC700"
+    name = "Hololive"
+    server_url = "https://holodex.net/favorites.ics?key=8ab90871-18fc-4df2-81e2-80a40fe18e09"
+    type = "ics"
+
+[control_center]
+width = 900
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "clipboard"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [
+    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000005",
+    "desktop-widget-0000000000000006"
+]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 176.0
+    cy = 161.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        show_forecast = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 176.0
+    cy = 336.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "sysmon"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 198.0
+    cy = 1238.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "fancy_audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background = false
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 380.0
+    cy = 637.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "calendar"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 398.0
+    cy = 134.5
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+        clock_style = "digital"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000006]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 239.0
+    cy = 944.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "media_player"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        hide_when_no_media = false
+
+[dock]
+active_monitor_only = true
+concave_edge_corners = false
+icon_size = 30
+pinned = [ "one.ablaze.floorp" ]
+radius = 8
+show_dots = true
+
+[location]
+address = "Devils Lake, North Dakota, United States"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-2"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 898.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[osd.kinds]
+media = false
+
+[plugin_settings."andrewdems/vpn-manager"]
+panel_placement = "floating"
+
+[plugin_settings."fel/ocr"]
+languages = "eng+jp"
+
+[plugin_settings."h-jangra/keyviz"]
+font_size = "small"
+max_keys = 8
+overlay_open_near_click = true
+overlay_position = "bottom_left"
+timeout_ms = 2400
+
+[plugin_settings."h-jangra/region-recorder"]
+audio_source = "default_output"
+copy_to_clipboard = true
+
+[plugin_settings."noctalia/screen_recorder"]
+replay_duration = 300
+replay_enabled = true
+replay_filename_pattern = "recording_%Y%m%d_%H%M%S"
+restore_portal = true
+
+[plugin_settings."noctalia/umbriel-companion"]
+panel_placement = "floating"
+
+[plugin_settings."raycursive/discord-voice"]
+discord_binary = "/usr/bin/equibop"
+
+[plugins]
+auto_update = "official"
+enabled = [
+    "fel/ocr",
+    "radimous/prismlauncher-instances",
+    "h-jangra/region-recorder",
+    "noctalia/timer",
+    "ahmedhossamdev/timezone-hub",
+    "nightwatch75/todo",
+    "yocraft/web-launcher",
+    "notfinaldev/youtube-search",
+    "noctalia/bitwarden",
+    "noctalia/screen_recorder",
+    "noctalia/notes",
+    "noctalia/translator",
+    "andrewdems/vpn-manager",
+    "raycursive/discord-voice",
+    "oldirtty/color_picker",
+    "dotnetrob/cat",
+    "dunarand/bookmarks",
+    "noctalia/umbriel-companion",
+    "aabidk20/yt-music"
+]
+
+[shell]
+polkit_agent = true
+settings_window_translucent = true
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.launcher]
+    pinned = [ "app.liten.Gram", "org.kde.dolphin", "com.moonlight_stream.Moonlight", "clipstudiopaint" ]
+
+        [shell.launcher.dmenu.entry.fubu]
+        command = "printf 'Open Youtube Link in MPV'"
+        exec = "mpv '{query}'"
+        freeform = true
+        global = false
+        gylph = "bell"
+        label = "Fubu"
+        prefix = "fubu"
+
+    [shell.mpris]
+    blacklist = [ "floorp" ]
+
+    [shell.panel]
+    control_center_placement = "floating"
+    transparency_mode = "glass"
+
+    [shell.screenshot]
+    annotate = true
+    directory = "/home/minto/Pictures/Screenshots"
+    show_cursor = true
+
+[theme]
+builtin = "Kanagawa"
+community_palette = "Catppuccin Mocha Sapphire"
+source = "community"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "starship", "umbriel" ]
+    community_ids = [ "halloy", "zed", "prismlauncher", "steam", "fcitx5" ]
+
+[wallpaper]
+directory = "/home/minto/Documents/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/minto/Documents/wallpaper/16:9/HMF-288awAA4M-D.jpeg"
+
+    [wallpaper.last]
+    path = "/home/minto/Documents/wallpaper/16:9/HMF-288awAA4M-D.jpeg"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/minto/Documents/wallpaper/16:9/HMF-288awAA4M-D.jpeg"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/minto/Documents/wallpaper/16:9/HMF-288awAA4M-D.jpeg"
+
+[widget.active_window]
+enabled = false
+
+[widget.bar]
+type = "noctalia/timer:bar"
+
+[widget.bar_2]
+type = "andrewdems/vpn-manager:bar"
+
+[widget.bar_3]
+display_mode = "submap"
+type = "noctalia/umbriel-companion:bar"
+
+[widget.battery]
+anchor = true
+
+[widget.cat]
+type = "dotnetrob/cat:cat"
+
+[widget.clipboard]
+enabled = false
+
+[widget.control-center]
+enabled = false
+
+[widget.network]
+enabled = false
+
+[widget.tray]
+detached_panel = true
+drawer = true
+drawer_item_size = 21.0
+
+[widget.widget]
+enabled = false
+type = "aabidk20/yt-music:widget"
+
+[widget.widget_2]
+type = "oldirtty/color_picker:widget"
+
+[widget.workspaces]
+active_pill_size = 3.0
+empty_color = "surface_variant"
+pill_scale = 0.90000000000000002

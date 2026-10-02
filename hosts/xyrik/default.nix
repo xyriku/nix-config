@@ -7,11 +7,11 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-#      ./window-manager.nix
       ./hardware-configuration.nix
- #     ./multimedia.nix
-#       ./environment.nix
 
+
+      ../../modules/umbriel.nix
+      ../../modules/system.nix
     ];
 
   # Enable Flakes and accompanying CLI tool
