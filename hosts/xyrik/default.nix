@@ -2,14 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-
+      ../../base/fonts.nix
       ../../modules/umbriel.nix
       ../../modules/system.nix
     ];

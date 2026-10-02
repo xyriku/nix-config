@@ -7,6 +7,7 @@
     ./git.nix
     ./media.nix
     ./xdg.nix
+    ./creative.nix
 
   ];
 

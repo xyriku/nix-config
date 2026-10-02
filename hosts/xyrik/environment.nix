@@ -1,5 +1,5 @@
-{ config, pkgs, ...}:
+{ lib, config, pkgs, ...}:
 
 {
-    environment.variables.EDITOR = "nvim";
+
 }
