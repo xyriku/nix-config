@@ -1,29 +1,30 @@
 {
   description = "Your new nix config";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://noctalia.cachix.org"
-    ];
-  extra-trusted-public-keys = [
-    "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
-  };
+ # nixConfig = {
+ #   extra-substituters = [
+ #     "https://nix-community.cachix.org"
+ #     "https://noctalia.cachix.org"
+ #   ];
+ # extra-trusted-public-keys = [
+ #   "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+ #   ];
+ # };
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-26.05";
+    home-manager.url = "github:nix-community/home-manager/";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # noctalia
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+   # noctalia = {
+   #   url = "github:noctalia-dev/noctalia";
+   #   inputs.nixpkgs.follows = "nixpkgs";
+   # };
   };
 
   outputs = {
@@ -38,7 +39,8 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs;
+        };
         # > Our main nixos configuration file <
         modules = [
           ./hosts/xyrik
@@ -49,7 +51,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            #home-manager.extraSpecialArgs = inputs // specialArgs;
+            #home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.xyrik = import ./home-manager/home.nix;
             }
         ];

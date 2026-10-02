@@ -46,8 +46,7 @@
     homeDirectory = "/home/xyrik";
   };
 
-  # Add stuff for your user as you see fit:
-  programs.neovim.enable = true;
+  programs.zsh.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -99,7 +98,6 @@ iftop
 
 # system call montioring
 strace
-ltrace
 lsof
 
 # system tools
@@ -152,7 +150,7 @@ moonlight-qt
    oh-my-zsh = {
      enable = true;
      plugins = [
-       "git" "zsh-syntax-highlighting" "zsh-auto-suggestions"
+       "git"
        "zoxide" "fzf" "flutter"
 
      ];
@@ -162,7 +160,7 @@ moonlight-qt
   #programs.bash.enable = true;
   programs.bash.shellAliases = {
     update = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
-    update-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
+    update-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik";
   };
 
 

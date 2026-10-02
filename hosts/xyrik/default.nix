@@ -127,7 +127,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     git
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gram
     wget
     discord-ptb
@@ -136,7 +136,6 @@
     home-manager
     easyeffects
     chromium
-    keychron-udev-rules
 ];
 
   # Some programs need SUID wrappers, can be configured further or are
