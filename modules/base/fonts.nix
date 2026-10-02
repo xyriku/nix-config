@@ -3,10 +3,10 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-color-emojki
+    noto-fonts-color-emoji
     liberation_ttf
     nerd-fonts.fira-code
     nerd-fonts.iosevka
-    nerd-fonts.iosevkaterm
+    nerd-fonts.iosevka-term
   ];
 }

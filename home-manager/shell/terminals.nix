@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 
-let
-  font = "JetBrainsMono Nerd Font";
-in
 {
   programs.kitty = {
     enable = true;
@@ -13,7 +10,7 @@ in
     };
 
     font = {
-      name = font;
+      name = "IosevkaTerm Nerd Font";
       size = 12;
     };
 

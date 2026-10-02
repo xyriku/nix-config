@@ -113,7 +113,6 @@ vscode-json-languageserver
 package-version-server
 
 # games
-steam
 moonlight-qt
 
 

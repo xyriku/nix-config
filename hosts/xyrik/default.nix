@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../../base/fonts.nix
+      ../../modules/base/fonts.nix
       ../../modules/umbriel.nix
       ../../modules/system.nix
     ];
@@ -73,6 +73,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -132,10 +140,8 @@
     wget
     discord-ptb
     pear-desktop
-    steam
     home-manager
     easyeffects
-    chromium
 ];
 
   # Some programs need SUID wrappers, can be configured further or are
