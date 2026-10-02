@@ -7,8 +7,12 @@
   pkgs,
   ...
 }: {
-  # You can import other home-manager modules here
+  # You can import other home-manager modules hee
   imports = [
+    ./fcitx5
+    ./programs
+    ./shell
+    ./wm
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
 
@@ -67,6 +71,8 @@ jq
 yq-go
 eza
 fzf
+syncthing
+syncthingtray
 
 # misc
 file
@@ -103,6 +109,12 @@ ethtool
 pciutils
 usbutils
 
+# development
+rust-analyzer
+lua-language-server
+vscode-json-languageserver
+package-version-server
+
 # games
 steam
 moonlight-qt
@@ -116,11 +128,41 @@ moonlight-qt
     settings.user.email = "xyrik@fubuk.ing";
   };
 
+
+  programs.zsh.enable = true;
+  programs.zsh = {
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      update = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
+      update-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
+      ls = "eza --icons=always";
+      fubu = "noglob mpv '--ytdl-format=bestvideo[height<=?1440]+bestaudio/best'";
+      listports = "sudo ss -tulpn";
+      addport="'f() { sudo firewall-cmd --permanent --zone=public --add-port=$1/$2};f'";
+    };
+
+   history.size = 10000;
+   history.ignoreAllDups = true;
+   history.path = "$HOME/.zsh_history";
+   history.ignorePatterns = ["rm*" "pkill *" "cp *"];
+
+   oh-my-zsh = {
+     enable = true;
+     plugins = [
+       "git" "zsh-syntax-highlighting" "zsh-auto-suggestions"
+       "zoxide" "fzf" "flutter"
+
+     ];
+   };
+  };
   # Shell aliases
-  programs.bash.enable = true;
+  #programs.bash.enable = true;
   programs.bash.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
-    apply-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
+    update = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
+    update-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
   };
 
 

@@ -1,6 +1,12 @@
 {
   description = "Your new nix config";
 
+#  nixConfig = {
+#    extra-substituters = [
+#      "https://nix-community.cachix.org"
+#    ];
+#  extra-trusted-public-keys = []
+#  }
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -24,12 +30,16 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         # > Our main nixos configuration file <
-        modules = [./nixos/configuration.nix
+        modules = [
+          ./hosts/xyrik
+
+          # make home-manager a moduel of nixos
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+           # home-manager.extraSpecialArgs = inputs // specialArgs;
             home-manager.users.xyrik = import ./home-manager/home.nix;
             }
         ];
@@ -38,15 +48,15 @@
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "nixos" = home-manager.lib.homeManagerConfiguration {
-        # Home-manager requires 'pkgs' instance
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture
-        extraSpecialArgs = {inherit inputs;};
-        # > Our main home-manager configuration file <
-        modules = [./home-manager/home.nix];
-      };
-    };
+   # homeConfigurations = {
+   #   # FIXME replace with your username@hostname
+   #   "nixos" = home-manager.lib.homeManagerConfiguration {
+   #     # Home-manager requires 'pkgs' instance
+   #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture
+   #     extraSpecialArgs = {inherit inputs;};
+   #     # > Our main home-manager configuration file <
+   #     modules = [./home-manager/home.nix];
+   #   };
+   # };
   };
 }
