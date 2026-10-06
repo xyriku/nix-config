@@ -38,7 +38,7 @@
   nix.gc.options = "--delete-older-than 10d";
   nix.settings.auto-optimise-store = true;
 
-
+  programs.gpu-screen-recorder.enable = true;
   programs.zsh.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -91,11 +91,11 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  #services.displayManager.noctalia-greeter.enable = true;
+  #services.displayManager.sddm.enable = true;
+  services.displayManager.noctalia-greeter.enable = true;
 
-  services.desktopManager.plasma6.enable = true;
-  programs.partition-manager.enable = true;
+  #services.desktopManager.plasma6.enable = true;
+  #programs.partition-manager.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -154,6 +154,7 @@
     easyeffects
     ddrescue
     testdisk
+    kdePackages.polkit-kde-agent-1
 ];
 
 

@@ -10,12 +10,15 @@
     cliphist
     dmenu
     dotnet-sdk
+    equibop
     feh
     ffmpeg-full
     gpu-screen-recorder
+    kdePackages.dolphin
     greetd
     imagemagick
     input-remapper
+    mpv
     mpvScripts.mpris
     noctalia-greeter
     opentabletdriver
@@ -30,6 +33,7 @@
     qpwgraph
     reaper
     samba
+    slurp
     starship
     swayimg
     tailscale

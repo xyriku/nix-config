@@ -115,6 +115,7 @@ package-version-server
 # games
 moonlight-qt
 
+# lol
 
 ];
 
@@ -162,6 +163,23 @@ moonlight-qt
   };
 
 
+  systemd.user.services.polkit-kde-authentication-agent-1 = {
+    Unit = {
+      Description = "polkit-kde-authentication-agent-1";
+      Wants = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "26.05";
 }
