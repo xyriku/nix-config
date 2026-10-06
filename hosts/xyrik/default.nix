@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -10,9 +10,13 @@
       ./hardware-configuration.nix
 
       ../../modules/base/fonts.nix
-      ../../modules/umbriel.nix
       ../../modules/system.nix
+      inputs.umbriel.nixosModules.default
     ];
+
+    programs.umbriel = {
+      enable = true;
+    };
 
   # Enable Flakes and accompanying CLI tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -88,6 +92,8 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+  #services.displayManager.noctalia-greeter.enable = true;
+
   services.desktopManager.plasma6.enable = true;
   programs.partition-manager.enable = true;
 
@@ -138,6 +144,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     git
+    git-lfs
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gram
     wget
@@ -145,6 +152,8 @@
     pear-desktop
     home-manager
     easyeffects
+    ddrescue
+    testdisk
 ];
 
 

@@ -1,6 +1,6 @@
-{ pkgs, ...}:
+{ inputs, pkgs, ...}:
 {
-  programs.umbriel = {
-    enable = true;
-  };
+  imports = [
+  ];
+
 }
