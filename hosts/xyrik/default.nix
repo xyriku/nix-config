@@ -8,15 +8,21 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./systemd.nix
 
       ../../modules/base/fonts.nix
       ../../modules/system.nix
+
       inputs.umbriel.nixosModules.default
     ];
 
     programs.umbriel = {
       enable = true;
     };
+
+    programs.hyprland.enable = true;
+
+  programs.gamemode.enable = true; # for performance mode
 
   # Enable Flakes and accompanying CLI tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -86,16 +92,27 @@
       fcitx5-gtk
     ];
   };
+
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
+  services.displayManager.noctalia-greeter.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  #services.displayManager.sddm.enable = true;
-  services.displayManager.noctalia-greeter.enable = true;
-
-  #services.desktopManager.plasma6.enable = true;
-  #programs.partition-manager.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    gwenview
+    okular
+    elisa
+    kdepim-runtime
+    kmahjongg
+    kmines
+    konversation
+    kpat
+    ksudoku
+    ktorrent
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -127,12 +144,15 @@
   users.users."xyrik" = {
     isNormalUser = true;
     description = "xyrik";
-    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+    extraGroups = [ "input" "uinput" "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
   };
+
+  users.defaultUserShell = pkgs.zsh;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -154,9 +174,22 @@
     easyeffects
     ddrescue
     testdisk
-    kdePackages.polkit-kde-agent-1
+    logitech-udev-rules
+    libinput
+    pipx
+    linuxHeaders
+    evtest
+    makima
 ];
 
+
+services.libinput = {
+  enable = true;
+  };
+
+services.udev.extraRules = ''
+  SUBSYSTEM=="misc", KERNEL=="uinput", MODE="0660", GROUP="input", TAG+="uaccess"
+'';
 
 
   # Some programs need SUID wrappers, can be configured further or are

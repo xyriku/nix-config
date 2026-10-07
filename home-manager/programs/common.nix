@@ -17,7 +17,6 @@
     kdePackages.dolphin
     greetd
     imagemagick
-    input-remapper
     mpv
     mpvScripts.mpris
     noctalia-greeter
@@ -36,12 +35,14 @@
     slurp
     starship
     swayimg
+    steam
     tailscale
     tesseract
     tetrio-desktop
     typescript
     virtualbox
     webrtc-audio-processing
+    wev
     wl-clipboard
     wget
     xivlauncher
@@ -51,7 +52,6 @@
     yt-dlp
     ydotool
     kdotool
-
 
 
 

@@ -1,4 +1,5 @@
-{ pkgs , ...};
+{ pkgs , ...}:
+
 {
   programs = {
     gram = {
@@ -6,7 +7,9 @@
   settings = {
     buffer_font_family = "Iosevka Nerd Font";
     buffer_font_size = 18;
-    buffer_font_weight = 400;
+    buffer_font_weight = 500;
+    theme = "Catppuccin Mocha";
+    vim_mode = true;
   };
     };
   };

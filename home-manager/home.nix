@@ -13,6 +13,7 @@
     ./programs
     ./shell
     ./wm
+    ./base
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
 
@@ -119,6 +120,7 @@ moonlight-qt
 
 ];
 
+
   programs.git = {
     enable = true;
     settings.user.name = "xyrik";
@@ -180,6 +182,7 @@ moonlight-qt
       TimeoutStopSec = 10;
     };
   };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "26.05";
 }
