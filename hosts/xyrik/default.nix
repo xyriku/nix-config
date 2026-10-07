@@ -20,7 +20,10 @@
       enable = true;
     };
 
-    programs.hyprland.enable = true;
+  programs.hyprland.enable = true;
+  programs.steam.enable = true;
+
+  hardware.uinput.enable = true;
 
   programs.gamemode.enable = true; # for performance mode
 
@@ -190,7 +193,6 @@ services.libinput = {
 services.udev.extraRules = ''
   SUBSYSTEM=="misc", KERNEL=="uinput", MODE="0660", GROUP="input", TAG+="uaccess"
 '';
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -35,7 +35,6 @@
     slurp
     starship
     swayimg
-    steam
     tailscale
     tesseract
     tetrio-desktop
