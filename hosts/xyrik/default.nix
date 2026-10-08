@@ -179,6 +179,7 @@
     testdisk
     logitech-udev-rules
     libinput
+    kara
     pipx
     linuxHeaders
     evtest
