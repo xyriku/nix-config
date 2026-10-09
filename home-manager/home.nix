@@ -57,6 +57,8 @@ home.packages = with pkgs; [
 fastfetch
 yazi
 btop
+neovim
+zellij
 
 # archives
 zip
