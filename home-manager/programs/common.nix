@@ -51,6 +51,7 @@
     yt-dlp
     ydotool
     kdotool
+    bitwarden-cli
 
 
 

@@ -37,7 +37,7 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-
+    eagle.url = "github:Naitrate/Eagle-Linux";
 
 
   };

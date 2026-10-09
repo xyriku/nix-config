@@ -10,6 +10,7 @@
       background_blur = 5;
       shell = "zellij";
       startup_session = "launch.conf";
+      remember_window_size = "no";
     };
 
     font = {
