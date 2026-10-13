@@ -10,8 +10,9 @@
       ./hardware-configuration.nix
       ./systemd.nix
 
-      ../../modules/base/fonts.nix
-      ../../modules/system.nix
+      ../../modules/base
+      ../../modules/nixos
+   #   ../../modules/nixos/packages.nix
 
       inputs.umbriel.nixosModules.default
     ];
@@ -19,6 +20,8 @@
     programs.umbriel = {
       enable = true;
     };
+
+  boot.blacklistedKernelModules = [ "libwacom" ];
 
   programs.hyprland.enable = true;
   programs.steam.enable = true;
@@ -181,9 +184,12 @@
     libinput
     kara
     pipx
+    nix-prefetch
+    nix-prefetch-github
     linuxHeaders
     evtest
     makima
+    (pkgs.callPackage ../../modules/nixos/packages.nix {})
 ];
 
 
@@ -194,6 +200,10 @@ services.libinput = {
 services.udev.extraRules = ''
   SUBSYSTEM=="misc", KERNEL=="uinput", MODE="0660", GROUP="input", TAG+="uaccess"
 '';
+
+hardware.opentabletdriver.enable = true;
+
+boot.kernelModules = [ "uinput" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -209,8 +219,8 @@ services.udev.extraRules = ''
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ 5353 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

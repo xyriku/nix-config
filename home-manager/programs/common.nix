@@ -20,7 +20,6 @@
     mpv
     mpvScripts.mpris
     noctalia-greeter
-    opentabletdriver
     openvpn
     osu-lazer-bin
     pavucontrol
@@ -52,6 +51,7 @@
     ydotool
     kdotool
     bitwarden-cli
+    vesktop
 
 
 
