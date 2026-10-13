@@ -49,18 +49,13 @@
     ...
   } @ inputs: let
   in {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;
         };
-        # > Our main nixos configuration file <
         modules = [
           ./hosts/xyrik
 
-          # make home-manager a moduel of nixos
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -73,17 +68,5 @@
       };
     };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-   # homeConfigurations = {
-   #   # FIXME replace with your username@hostname
-   #   "nixos" = home-manager.lib.homeManagerConfiguration {
-   #     # Home-manager requires 'pkgs' instance
-   #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecture
-   #     extraSpecialArgs = {inherit inputs;};
-   #     # > Our main home-manager configuration file <
-   #     modules = [./home-manager/home.nix];
-   #   };
-   # };
   };
 }

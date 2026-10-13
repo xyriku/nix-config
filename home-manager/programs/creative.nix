@@ -8,6 +8,7 @@
     reaper
     yabridge
     yabridgectl
+    qpwgraph
   ];
 
   programs = {

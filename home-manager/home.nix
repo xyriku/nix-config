@@ -1,5 +1,3 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
   lib,
@@ -7,40 +5,14 @@
   pkgs,
   ...
 }: {
-  # You can import other home-manager modules hee
   imports = [
     ./programs
     ./shell
     ./wm
     ./base
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
   ];
 
-#  nixpkgs = {
-#    # You can add overlays here
-#    overlays = [
-#      # If you want to use overlays exported from other flakes:
-#      # neovim-nightly-overlay.overlays.default
-#
-#      # Or define it inline, for example:
-#      # (final: prev: {
-#      #   hi = final.hello.overrideAttrs (oldAttrs: {
-#      #     patches = [ ./change-hello-to-hi.patch ];
-#      #   });
-#      # })
-#    ];
-#    # Configure your nixpkgs instance
-#    config = {
-#      # Disable if you don't want unfree packages
-#      allowUnfree = true;
-#    };
-#  };
 
-  # TODO: Set your username
   home = {
     username = "xyrik";
     homeDirectory = "/home/xyrik";
@@ -49,68 +21,6 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-
-home.packages = with pkgs; [
-
-
-# archives
-zip
-xz
-unzip
-p7zip
-
-# utils
-ripgrep
-jq
-yq-go
-eza
-fzf
-syncthing
-syncthingtray
-
-# misc
-file
-which
-tree
-gnused
-gnutar
-gawk
-zstd
-gnupg
-
-
-# nix related
-# provdes command 'nom', works like nix but with more log output
-nix-output-monitor
-
-# productivity
-glow # markdown previwer in terminal
-hugo # static site generator
-
-iotop
-iftop
-
-# system call montioring
-strace
-lsof
-
-# system tools
-sysstat
-lm_sensors
-ethtool
-pciutils
-usbutils
-
-# development
-rust-analyzer
-lua-language-server
-vscode-json-languageserver
-package-version-server
-
-
-];
-
-
 
   # Shell aliases
   #programs.bash.enable = true;

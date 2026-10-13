@@ -3,11 +3,7 @@
   imports = [
   ];
 
-
-#config = {
-
     home.packages = with pkgs; [
-      inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.pipewireLowLatency
       protonup-qt # GUI for installing custom Proton versions like GE_Proton
       gamescope
       mangohud
@@ -24,9 +20,4 @@
       moonlight-qt
     ];
 
-    services.pipewire.lowLatency.enable = true;
-    programs.steam.platformOptimizations.enable = true;
-
-
-#};
 }

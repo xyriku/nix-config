@@ -2,37 +2,105 @@
 
 {
   home.packages = with pkgs; [
+
+
+# archives
+    zip
+    xz
+    unzip
+    p7zip
+
+# utils
+    ripgrep
+    jq
+    yq-go
+    eza
+    fzf
+    syncthing
+    syncthingtray
     aha
-   (bottles.override { removeWarningPopup = true; })
     cifs-utils
     cliphist
     dmenu
     dotnet-sdk
-    equibop
-    kdePackages.dolphin
-    discord
-    gram
-    greetd
-    noctalia-greeter
-    openvpn
-    perl
-    python3
-    qpwgraph
-    samba
     slurp
-    starship
-    tailscale
     tesseract
-    typescript
-    virtualbox
-    wev
     wl-clipboard
+    wev
     wget
-    xwayland-satellite
     ydotool
     kdotool
-    bitwarden-cli
+
+# misc
+    file
+    which
+    tree
+    gnused
+    gnutar
+    gawk
+    zstd
+    gnupg
+
+
+# nix related
+# provdes command 'nom', works like nix but with more log output
+    nix-output-monitor
+
+# productivity
+    glow # markdown previwer in terminal
+    hugo # static site generator
+
+    iotop
+    iftop
+
+# system call montioring
+    strace
+    lsof
+
+# system tools
+    sysstat
+    lm_sensors
+    ethtool
+    pciutils
+    usbutils
+
+# development
+    rust-analyzer
+    lua-language-server
+    vscode-json-languageserver
+    package-version-server
+    nixd
+
+# languages
+    perl
+    python3
+    typescript
+
+
+# wine related
+   (bottles.override { removeWarningPopup = true; })
+    xwayland-satellite
+
+# general applications
+    equibop
+    discord
     vesktop
+    kdePackages.dolphin
+    gram
+    virtualbox
+
+# noctalia
+    greetd
+    noctalia-greeter
+
+# network
+    openvpn
+    samba
+    tailscale
+
+# terminal
+    bitwarden-cli
+    starship
 
 
 
