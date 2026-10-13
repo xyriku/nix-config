@@ -3,22 +3,8 @@
   imports = [
   ];
 
-  options = {
-  };
 
-config = {
-
-    programs.steam = {
-      enable = true; # install steam
-      package = pkgs.steam;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-
-     gamescopeSession.enable = true;
-
-      protontricks.enable = true;
-      extest.enable = true;
-    };
+#config = {
 
     home.packages = with pkgs; [
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.pipewireLowLatency
@@ -35,11 +21,12 @@ config = {
       tetrio-desktop
       xivlauncher
       archon-lite
+      moonlight-qt
     ];
 
     services.pipewire.lowLatency.enable = true;
     programs.steam.platformOptimizations.enable = true;
 
 
-};
+#};
 }

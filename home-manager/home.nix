@@ -9,7 +9,6 @@
 }: {
   # You can import other home-manager modules hee
   imports = [
-    ./fcitx5
     ./programs
     ./shell
     ./wm
@@ -53,12 +52,6 @@
 
 home.packages = with pkgs; [
 
-# some terminal stuff
-fastfetch
-yazi
-btop
-neovim
-zellij
 
 # archives
 zip
@@ -94,7 +87,6 @@ nix-output-monitor
 glow # markdown previwer in terminal
 hugo # static site generator
 
-btop
 iotop
 iftop
 
@@ -115,10 +107,6 @@ lua-language-server
 vscode-json-languageserver
 package-version-server
 
-# games
-moonlight-qt
-
-# lol
 
 ];
 

@@ -3,7 +3,7 @@
   programs.gpu-screen-recorder.enable = true;
   programs.zsh.enable = true;
   programs.hyprland.enable = true;
-  programs.steam.enable = true;
+ # programs.steam.enable = true;
   programs.gamemode.enable = true; # for performance mode
   programs.firefox.enable = true;
   programs.umbriel.enable = true;

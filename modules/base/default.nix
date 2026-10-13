@@ -3,6 +3,7 @@
     imports = [
     ./nix.nix
     ./fonts.nix
+    ./gaming.nix
     ./overlays.nix
     ./programs.nix
     ./security.nix

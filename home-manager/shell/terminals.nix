@@ -2,6 +2,16 @@
 
 
 {
+  home.packages = with pkgs; [
+    fastfetch
+    yazi
+    btop
+    neovim
+    zellij
+
+  ];
+
+
   programs.kitty = {
     enable = true;
     settings = {
