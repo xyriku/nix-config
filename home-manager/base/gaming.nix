@@ -28,6 +28,13 @@ config = {
       protonplus
       winetricks
       umu-launcher
+
+      prismlauncher
+      osu-lazer-bin
+      rusty-path-of-building
+      tetrio-desktop
+      xivlauncher
+      archon-lite
     ];
 
     services.pipewire.lowLatency.enable = true;

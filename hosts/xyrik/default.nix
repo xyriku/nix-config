@@ -12,26 +12,9 @@
 
       ../../modules/base
       ../../modules/nixos
-   #   ../../modules/nixos/packages.nix
 
       inputs.umbriel.nixosModules.default
     ];
-
-    programs.umbriel = {
-      enable = true;
-    };
-
-  boot.blacklistedKernelModules = [ "libwacom" ];
-
-  programs.hyprland.enable = true;
-  programs.steam.enable = true;
-
-  hardware.uinput.enable = true;
-
-  programs.gamemode.enable = true; # for performance mode
-
-  # Enable Flakes and accompanying CLI tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -40,36 +23,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Automatic updating
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.dates = "weekly";
-
-  # Automatic cleanup
-  nix.gc.automatic = true;
-  nix.gc.dates = "daily";
-  nix.gc.options = "--delete-older-than 10d";
-  nix.settings.auto-optimise-store = true;
-
-  programs.gpu-screen-recorder.enable = true;
-  programs.zsh.enable = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-
-  services.blueman.enable = true;
+  boot.blacklistedKernelModules = [ "libwacom" ];
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -89,121 +43,20 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.displayManager.noctalia-greeter.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    gwenview
-    okular
-    elisa
-    kdepim-runtime
-    kmahjongg
-    kmines
-    konversation
-    kpat
-    ksudoku
-    ktorrent
-  ];
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
-
- security.polkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."xyrik" = {
-    isNormalUser = true;
-    description = "xyrik";
-    shell = pkgs.zsh;
-    extraGroups = [ "input" "uinput" "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-  };
-
-  users.defaultUserShell = pkgs.zsh;
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    git
-    git-lfs
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    gram
-    wget
-    discord-ptb
-    pear-desktop
-    home-manager
-    easyeffects
-    ddrescue
-    testdisk
-    logitech-udev-rules
-    libinput
-    kara
-    pipx
-    nix-prefetch
-    nix-prefetch-github
-    linuxHeaders
-    evtest
-    makima
-    (pkgs.callPackage ../../modules/nixos/packages.nix {})
-];
 
 
-services.libinput = {
-  enable = true;
-  };
-
-services.udev.extraRules = ''
-  SUBSYSTEM=="misc", KERNEL=="uinput", MODE="0660", GROUP="input", TAG+="uaccess"
-'';
-
-hardware.opentabletdriver.enable = true;
-
-boot.kernelModules = [ "uinput" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -218,11 +71,6 @@ boot.kernelModules = [ "uinput" ];
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ 5353 ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

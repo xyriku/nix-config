@@ -123,42 +123,7 @@ moonlight-qt
 ];
 
 
-  programs.git = {
-    enable = true;
-    settings.user.name = "xyrik";
-    settings.user.email = "xyrik@fubuk.ing";
-  };
 
-
-  programs.zsh.enable = true;
-  programs.zsh = {
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      update = "sudo nixos-rebuild switch --flake /home/xyrik/Documents/nix-config/#nixos";
-      update-home = "sudo home-manager switch --flake /home/xyrik/Documents/nix-config/#xyrik@nixos";
-      ls = "eza --icons=always";
-      fubu = "noglob mpv '--ytdl-format=bestvideo[height<=?1440]+bestaudio/best'";
-      listports = "sudo ss -tulpn";
-      addport="'f() { sudo firewall-cmd --permanent --zone=public --add-port=$1/$2};f'";
-    };
-
-   history.size = 10000;
-   history.ignoreAllDups = true;
-   history.path = "$HOME/.zsh_history";
-   history.ignorePatterns = ["rm*" "pkill *" "cp *"];
-
-   oh-my-zsh = {
-     enable = true;
-     plugins = [
-       "git"
-       "zoxide" "fzf" "flutter"
-
-     ];
-   };
-  };
   # Shell aliases
   #programs.bash.enable = true;
   programs.bash.shellAliases = {
@@ -167,23 +132,6 @@ moonlight-qt
   };
 
 
-  systemd.user.services.polkit-kde-authentication-agent-1 = {
-    Unit = {
-      Description = "polkit-kde-authentication-agent-1";
-      Wants = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "26.05";

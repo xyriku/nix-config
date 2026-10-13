@@ -3,8 +3,13 @@
 {
 
   home.packages = with pkgs; [
+    audacity
     krita
+    reaper
+    yabridge
+    yabridgectl
   ];
+
   programs = {
   obs-studio = {
     enable = pkgs.stdenv.hostPlatform.isx86_64;
