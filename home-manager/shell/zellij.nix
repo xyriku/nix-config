@@ -5,10 +5,10 @@
                 enable = true;
                 enableZshIntegration = true;
                 attachExistingSession = true;
-                settings = {
-                        theme_dir = "${config.xdg.configHome}/zellij/themes";
-                    };
-                themes = "catppuccin-mocha";
+                #settings = {
+                        #theme_dir = "/home/xyrik/zellij/#themes";
+                #    };
+                #themes = "catppuccin-mocha";
             };
 }
 

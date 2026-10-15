@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -17,6 +17,9 @@
     slurp
     webrtc-audio-processing
     yt-dlp
+    zbar
+    bc
+    hyprpicker
 
   ];
 

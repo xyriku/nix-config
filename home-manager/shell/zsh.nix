@@ -1,4 +1,4 @@
-{ ... };
+{ ... }:
 {
 
   programs.zsh.enable = true;
@@ -14,7 +14,7 @@
       fubu = "noglob mpv '--ytdl-format=bestvideo[height<=?1440]+bestaudio/best'";
       listports = "sudo ss -tulpn";
       addport="'f() { sudo firewall-cmd --permanent --zone=public --add-port=$1/$2};f'";
-      cd = "zoxide"
+      cd="z";
     };
 
    history.size = 10000;
@@ -31,4 +31,5 @@
      ];
    };
   };
-    }
+
+}

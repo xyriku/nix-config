@@ -1,8 +1,4 @@
 {
-  inputs,
-  lib,
-  config,
-  pkgs,
   ...
 }: {
   imports = [
@@ -16,6 +12,7 @@
   home = {
     username = "xyrik";
     homeDirectory = "/home/xyrik";
+    sessionPath = [ "/home/xyrik/.config/emacs/bin" ];
   };
 
 

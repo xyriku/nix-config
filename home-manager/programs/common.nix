@@ -41,7 +41,6 @@
     zstd
     gnupg
 
-
 # nix related
 # provdes command 'nom', works like nix but with more log output
     nix-output-monitor
@@ -82,12 +81,12 @@
     xwayland-satellite
 
 # general applications
-    equibop
     discord
     vesktop
     kdePackages.dolphin
     gram
     virtualbox
+    emacs
 
 # noctalia
     greetd

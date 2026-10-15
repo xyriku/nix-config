@@ -26,6 +26,9 @@
     linuxHeaders
     evtest
     makima
-    
+    (pkgs.callPackage ../nixos/packages.nix { })
+    coreutils
+    fd
+    clang
 ];
 }
